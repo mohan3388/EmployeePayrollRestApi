@@ -79,5 +79,16 @@ namespace EmployeePayrll
             System.Console.WriteLine(response.Content);
             Console.WriteLine(response.Content);
         }
+        [TestMethod]
+        public void Given_EmployeeId_OnDelete_ShouldReturnSuccess()
+        {
+            //arrange
+            RestRequest restRequest = new RestRequest("/employees/2", Method.DELETE);
+            //Act
+            IRestResponse response = client.Execute(restRequest);
+            Assert.AreEqual(response.StatusCode, HttpStatusCode.OK);
+            Console.WriteLine(response.Content);
+
+        }
     }
 }
